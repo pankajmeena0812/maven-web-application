@@ -22,7 +22,7 @@ properties([buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKe
         sh "${mavenhome}/bin/mvn clean package"
     }
 
-*/
+
    stage('SONARQUBE'){
         sh "${mavenhome}/bin/mvn clean sonar:sonar"
     }    
@@ -36,7 +36,7 @@ properties([buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKe
 
         }
     } 
-*/
+
 } //tryclosing
 catch(e){
   currentBuild.result="FAILURE"
@@ -49,7 +49,7 @@ catch(e){
 
 }  //Nodeclosing
 
-/*
+
 //Code Snippet for sending slack notifications.
 
 def slackNotifications(String buildStatus = 'STARTED') {
@@ -79,4 +79,4 @@ def slackNotifications(String buildStatus = 'STARTED') {
   slackSend (color: colorCode, message: summary, channel: "#jenkins")
 }
 
-*/
+
